@@ -1,7 +1,21 @@
 #!/bin/bash
 
 if [[ $EUID -ne 0 ]]; then
-   echo "Please, run as root" 
-   exit 1
+  echo "Please, run as root"
+  exit 1
 fi
+
+CUSTOM_CGROUP="poc-cgsnap"
+
+# create cgroup
+mkdir /sys/fs/cgroup/$CUSTOM_CGROUP
+
+# Isolating half of the CPU cores available
+SHIELD="$((($(nproc) / 2) - 1))-n"
+
+echo ${SHIELD} | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
+
+# Mark the CPU cores to be isolated
+echo "isolated" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
+
 
