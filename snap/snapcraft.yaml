@@ -14,3 +14,7 @@ parts:
     plugin: dump
     source: .
     source-type: local
+
+apps:
+  run:
+    command: run
