@@ -5,13 +5,18 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+if test "$#" -ne 2; then
+  echo "Usage: $0 <cpu-shield>"
+  exit 1
+fi
+
 CUSTOM_CGROUP="poc-cgsnap"
 
 # create cgroup
 mkdir /sys/fs/cgroup/$CUSTOM_CGROUP
 
 # Isolating half of the CPU cores available
-SHIELD="$((($(nproc) / 2) - 1))-n"
+SHIELD=${1}
 
 echo ${SHIELD} | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
 
