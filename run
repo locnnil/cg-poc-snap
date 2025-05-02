@@ -17,7 +17,7 @@ CUSTOM_CGROUP="poc-cgsnap"
 mkdir /sys/fs/cgroup/$CUSTOM_CGROUP
 
 # Isolating half of the CPU cores available
-SHIELD=${1}
+SHIELD=$1
 
 echo ${SHIELD} | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
 
