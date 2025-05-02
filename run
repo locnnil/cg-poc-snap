@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-if test "$#" -ne 2; then
+if test "$#" -ne 1; then
   echo "Usage: $0 <cpu-shield>"
   exit 1
 fi
