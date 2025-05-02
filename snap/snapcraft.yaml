@@ -9,6 +9,12 @@ description: |
 grade: stable
 confinement: strict
 
+plugs:
+  sys-fs-cgroup:
+    interface: system-files
+    write:
+      - /sys/fs/cgroup
+
 parts:
   src:
     plugin: dump
@@ -18,3 +24,5 @@ parts:
 apps:
   run:
     command: run
+    plugs:
+      - sys-fs-cgroup
