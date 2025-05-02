@@ -26,3 +26,4 @@ apps:
     command: run
     plugs:
       - sys-fs-cgroup
+      - log-observe
