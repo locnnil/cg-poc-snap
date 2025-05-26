@@ -22,6 +22,12 @@ parts:
     source-type: local
 
 apps:
+  rt-app:
+    command: rt-app
+    daemon: simple
+    plugs:
+      - sys-fs-cgroup
+      - log-observe
   run:
     command: run
     plugs:
