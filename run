@@ -25,4 +25,4 @@ echo "${SHIELD}" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
 echo "isolated" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus.partition
 
 pid=$(pgrep "rt-app")
-echo "$pid" >/sys/fs/cgroup/cpuset/$CUSTOM_CGROUP/tasks
+echo "$pid" >/sys/fs/cgroup/$CUSTOM_CGROUP/cgroup.procs
