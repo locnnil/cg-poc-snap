@@ -24,4 +24,5 @@ echo "${SHIELD}" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
 # Mark the CPU cores to be isolated
 echo "isolated" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus.partition
 
-
+pid=$(pgrep -f "rt-app")
+echo "$pid" >/sys/fs/cgroup/cpuset/$CUSTOM_CGROUP/tasks
