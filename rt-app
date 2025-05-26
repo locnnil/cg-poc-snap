@@ -1,0 +1,10 @@
+#!/bin/bash
+
+tmpdir=$(mktemp)
+
+i=0
+while true; do
+  echo "[$(date +%Y-%m-%dT%H:%M:%S)] Counting $i" >>"$tmpdir"
+  i=$((i + 1))
+  sleep 5
+done
