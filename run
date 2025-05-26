@@ -22,6 +22,6 @@ SHIELD=$1
 echo "${SHIELD}" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
 
 # Mark the CPU cores to be isolated
-echo "isolated" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus
+echo "isolated" | tee /sys/fs/cgroup/$CUSTOM_CGROUP/cpuset.cpus.partition
 
 
